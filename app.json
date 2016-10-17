@@ -1,0 +1,7 @@
+{
+  "name": "microscope-web blank",
+  "description": "microscope-web blank starter-kit",
+  "repository": "https://github.com/microscopejs/web-blank",
+  "logo": "https://avatars0.githubusercontent.com/u/13710913?v=3&s=200",
+  "keywords": ["node", "microscope", "web", "es6"]
+}
