@@ -1,5 +1,4 @@
 var builder = require('botbuilder');
-
 var intents = new builder.IntentDialog();
 
 /**
@@ -14,28 +13,14 @@ export function rhbot(bot) {
         },
         function (session, results) {
             session.userData.name = results.response;
-            session.endDialog();
-            session.beginDialog('/job');
-        }
-    ]);
-
-    bot.dialog('/city', [
-        function (session) {
             builder.Prompts.text(session, 'Ou habitez vous '+ session.userData.name + ' ?');
         },
         function (session, results) {
             session.userData.city = results.response;
-            session.endDialog();
-            session.beginDialog('/job');
-        }
-    ]);
-
-    bot.dialog('/job', [
-        function (session) {
             builder.Prompts.confirm(session, "Voulez vous voir les offres a proximité de "+ session.userData.city +"?");
         },
         function (session, results) {
-            session.send('Je recherche des offres');
+            session.send('Je recherche des offres à proximité de %s !', session.userData.city);
             session.endDialog();
         }
     ]);
@@ -66,8 +51,6 @@ export function rhbot(bot) {
         function (session, args, next) {
             if (!session.userData.name) {
                 session.beginDialog('/profile');
-            } if (!session.userData.city) {
-                session.beginDialog('/city');
             } else {
                 next();
             }
