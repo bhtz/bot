@@ -21,6 +21,7 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
     "babel-register": "^6.5.1",
+    "basic-auth": "^1.0.4",
     "body-parser": "^1.14.1",
     "botbuilder": "^3.3.0",
     "cookie-parser": "^1.4.0",
